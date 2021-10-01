@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1483193" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Camunda_second_Project" name="Camunda Second Project" isExecutable="true">
+    <bpmn:startEvent id="Event_0p2qy7f" name="Start">
+      <bpmn:outgoing>Flow_184vcpz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_184vcpz" sourceRef="Event_0p2qy7f" targetRef="Activity_0gru6cf" />
+    <bpmn:sequenceFlow id="Flow_00xdj7g" sourceRef="Activity_0gru6cf" targetRef="Activity_136jh7j" />
+    <bpmn:userTask id="Activity_0gru6cf" name="Submission Form" camunda:formKey="User_1">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="User_Name" label="Name" type="string" defaultValue="John Doe" />
+          <camunda:formField id="User_Address" label="User Address" type="string" defaultValue="USA" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_184vcpz</bpmn:incoming>
+      <bpmn:outgoing>Flow_00xdj7g</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_136jh7j" name="Verification Form" camunda:formKey="Verification_From">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="FormField_1gs70bp" label="Name" type="string" />
+          <camunda:formField id="FormField_2h1k7st" label="Address" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_00xdj7g</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bp3uqt</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_03j9naa" name="End">
+      <bpmn:incoming>Flow_1bp3uqt</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1bp3uqt" sourceRef="Activity_136jh7j" targetRef="Event_03j9naa" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Camunda_second_Project">
+      <bpmndi:BPMNEdge id="Flow_184vcpz_di" bpmnElement="Flow_184vcpz">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00xdj7g_di" bpmnElement="Flow_00xdj7g">
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="400" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bp3uqt_di" bpmnElement="Flow_1bp3uqt">
+        <di:waypoint x="500" y="120" />
+        <di:waypoint x="562" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0p2qy7f_di" bpmnElement="Event_0p2qy7f">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="158" y="145" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ap9lnj_di" bpmnElement="Activity_0gru6cf">
+        <dc:Bounds x="240" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05vmpc0_di" bpmnElement="Activity_136jh7j">
+        <dc:Bounds x="400" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_03j9naa_di" bpmnElement="Event_03j9naa">
+        <dc:Bounds x="562" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="570" y="145" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
